@@ -1,10 +1,10 @@
 ---
 layout: page
 title: About me
-subtitle: Why you'd want to go on a date with me * careless whisper starts playing *
+subtitle: Oh! So you wish to know me better? * careless whisper starts playing *
 ---
 
-Meu nome é Ianní Muliterno.  Eu sou Estatística (soa estranho ¯\\_(ツ)_/¯) e meu objetivo aqui é registrar coisas que eu acho importante e/ou que preciso revisitar com certa frequência (*There's too much information out there, I keep forgetting stuff*). Quem sabe essas anotações não ajudam mais alguém.  
+Meu nome é Ianní Muliterno, eu sou Estatística e meu objetivo aqui é registrar coisas que eu acho importante e/ou que preciso revisitar com certa frequência (*There's too much information out there, I keep forgetting stuff*). Quem sabe essas anotações não ajudam mais alguém.  
 
 My name is Ianní Muliterno. I'm a Statistician and my goal here is to record things that I find important and/or need to revisit with certain frequency. Hopefully my notes can help someone out there. 
 
