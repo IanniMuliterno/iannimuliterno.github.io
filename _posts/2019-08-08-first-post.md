@@ -28,3 +28,4 @@ Hello my friends, stay awhile and listen!
  
  * **Likelihood Ratio Test**
 
+prosseguir : https://onlinelibrary.wiley.com/doi/abs/10.1111/ssqu.12273
