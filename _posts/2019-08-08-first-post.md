@@ -2,6 +2,7 @@
 layout: post
 title: Preditores, dropar ou não dropar? Transformar ou não transformar? (Primeiro post!)
 image: /img/hello_world.jpeg
+tags: [comparação,modelagem,máxima_verossimilhança]
 ---
 
 Hello my friends, stay awhile and listen!
