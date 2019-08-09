@@ -24,7 +24,7 @@ Hello my friends, stay awhile and listen!
    O critério de informação Bayesiano é bastante parecido com o AIC, e é avaliado da mesma forma, quanto menor melhor. A diferença na fórmula é que o '2' é substituido por ln(n) onde n é o numero de observações, ou seja, o BIC é melhor em penalizar a complexidade do modelo. Em geral a análise do AIC concorda com a do BIC, quando elas discordam o comum é que o AIC esteja indicando que versões mais complexas são melhores. No fim das contas, se você decidir que um deles é interessante para seu caso, o sábio é usar os dois. Se esses carinhas mais simples chamaram sua atenção, aqui está um breve post abordando [AIC vs BIC](https://www.methodology.psu.edu/resources/AIC-vs-BIC/), onde inclusive eles fazem a ousada afirmação de que sua maior referência deve ser o AIC se um falso negativo é um problema mais grave para você, e BIC caso contrário. Fiquem a vontade para investigar e decidir se concordam com isso.  
    
  * **Cross-Validation**
-  
+  /img/L_hat.png
  
  * **Likelihood Ratio Test**
 
