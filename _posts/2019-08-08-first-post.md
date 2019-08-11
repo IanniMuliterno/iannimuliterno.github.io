@@ -6,7 +6,7 @@ tags: [comparação,modelagem,máxima_verossimilhança]
 ---  
 
 Hello my friends, stay awhile and listen!             
-
+                                                                                                                                     
  Primeiro post \o/. Esse é um tema no qual coincidentemente esbarrei enquanto também esbarrava no belo e amigável ['beautiful-jekyll'](https://deanattali.com/beautiful-jekyll/). Combinação de coincidências que me fez (*finalmente*) começar a escrever.  
 
  Vamos a questão, recentemente me uni a um grupo de Devs e nossa primeira brincadeira oficial está sendo trabalhar com uma base de dados de preços de casas que consiste em algumas centenas de linhas e 80 variáveis. Depois de desbravar um pouco a base,observamos multicolinearidade (vulgo : *alguns preditores são muito semelhantes entre si* ) então surgiram as ideias de como lidar. Criar uma outra variável que contenha informação de ambas e dropar as originais depois? Dropar uma e deixar outra? Se sim, qual dropar? Estamos viajando e na verdade não precisa mexer em nada disso? Como saber o que é melhor?   
