@@ -5,12 +5,6 @@ image: /img/hello_world.jpeg
 tags: [comparação,modelagem,máxima_verossimilhança]
 ---
 
-
-
-
-
-
-
 Hello my friends, stay awhile and listen!
 
  Primeiro post \o/. Esse é um tema no qual coincidentemente esbarrei enquanto também esbarrava no belo e amigável ['beautiful-jekyll'](https://deanattali.com/beautiful-jekyll/). Combinação de coincidências que me fez (*finalmente*) começar a escrever.  
@@ -23,11 +17,7 @@ Hello my friends, stay awhile and listen!
 
  * **AIC**    
 
-
-
    AIC = 2k - 2ln(![L_hat](https://raw.githubusercontent.com/IanniMuliterno/iannimuliterno.github.io/master/img/L_hat.png))   
-
-
 
   O critério de informação de Akaike é uma métrica de qualidade de modelo. 'k' é o número de variáveis no modelo e '![L_hat](https://raw.githubusercontent.com/IanniMuliterno/iannimuliterno.github.io/master/img/L_hat.png)' é a máxima verossimilhança do modelo (que é de forma resumida, um valor que representa o quão bem o meu modelo explica os dados, vamos falar disso em outro post). O que acontece com essa métrica quando dropamos variáveis é que diminuimos o valor de 'k porém também diminuímos '![L_hat](https://raw.githubusercontent.com/IanniMuliterno/iannimuliterno.github.io/master/img/L_hat.png)' porque certamente nosso modelo vai ficar um pouco pior em explicar os dados. Observe que pela fórmula do AIC, o menor valor possível significa o melhor modelo possível, então se você dropa uma variável e de repente seu AIC que era -1000 passou para -800, é sinal de que você não deveria estar dropando tal variável. Por outro lado se o AIC ficar ainda menor ou se a diferença é ínfima (de -1000 para -990 por exemplo), é sinal de que o drop da variável é aceitável.  
 
