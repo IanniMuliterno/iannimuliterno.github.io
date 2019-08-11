@@ -5,7 +5,19 @@ image: /img/hello_world.jpeg
 tags: [comparação,modelagem,máxima_verossimilhança]
 ---
 
+
+
+
+
+
+
 Hello my friends, stay awhile and listen!
+
+
+
+
+
+
 
  Primeiro post \o/. Esse é um tema no qual coincidentemente esbarrei enquanto também esbarrava no belo e amigável ['beautiful-jekyll'](https://deanattali.com/beautiful-jekyll/). Combinação de coincidências que me fez (*finalmente*) começar a escrever.  
 
