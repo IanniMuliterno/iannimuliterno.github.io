@@ -23,8 +23,9 @@ Hello my friends, stay awhile and listen!
 
  * **BIC**  
 
-   BIC = ln(n)k - 2ln(![L_hat](https://raw.githubusercontent.com/IanniMuliterno/iannimuliterno.github.io/master/img/L_hat.png))---
-O critério de informação Bayesiano é bastante parecido com o AIC, e é avaliado da mesma forma, quanto menor melhor. A diferença na fórmula é que o '2' é substituido por ln(n) onde n é o numero de observações, ou seja, o BIC é melhor em penalizar a complexidade do modelo. Em geral a análise do AIC concorda com a do BIC, quando elas discordam o comum é que o AIC esteja indicando que versões mais complexas são melhores. No fim das contas, se você decidir que um deles é interessante para seu caso, o sábio é usar os dois. Se esses carinhas mais simples chamaram sua atenção, aqui está um breve post abordando [AIC vs BIC](https://www.methodology.psu.edu/resources/AIC-vs-BIC/), onde inclusive eles fazem a ousada afirmação de que sua maior referência deve ser o AIC se um falso negativo é um problema mais grave para você, e BIC caso contrário. Fiquem a vontade para investigar e decidir se concordam com isso.  
+   BIC = ln(n)k - 2ln(![L_hat](https://raw.githubusercontent.com/IanniMuliterno/iannimuliterno.github.io/master/img/L_hat.png))   
+
+  O critério de informação Bayesiano é bastante parecido com o AIC, e é avaliado da mesma forma, quanto menor melhor. A diferença na fórmula é que o '2' é substituido por ln(n) onde n é o numero de observações, ou seja, o BIC é melhor em penalizar a complexidade do modelo. Em geral a análise do AIC concorda com a do BIC, quando elas discordam o comum é que o AIC esteja indicando que versões mais complexas são melhores. No fim das contas, se você decidir que um deles é interessante para seu caso, o sábio é usar os dois. Se esses carinhas mais simples chamaram sua atenção, aqui está um breve post abordando [AIC vs BIC](https://www.methodology.psu.edu/resources/AIC-vs-BIC/), onde inclusive eles fazem a ousada afirmação de que sua maior referência deve ser o AIC se um falso negativo é um problema mais grave para você, e BIC caso contrário. Fiquem a vontade para investigar e decidir se concordam com isso.  
 
  * **Cross-Validation**  
 
@@ -34,7 +35,7 @@ O critério de informação Bayesiano é bastante parecido com o AIC, e é avali
 
  * **Likelihood Ratio Test**  
 
- LR = -2\[ln(![L_hat](https://raw.githubusercontent.com/IanniMuliterno/iannimuliterno.github.io/master/img/L_hat.png)0)- ln(![L_hat](https://raw.githubusercontent.com/IanniMuliterno/iannimuliterno.github.io/master/img/L_hat.png))\]  
+   LR = -2\[ln(![L_hat](https://raw.githubusercontent.com/IanniMuliterno/iannimuliterno.github.io/master/img/L_hat.png)0)- ln(![L_hat](https://raw.githubusercontent.com/IanniMuliterno/iannimuliterno.github.io/master/img/L_hat.png))\]  
 
  O teste da razão da verossimilhança (*LR*), como o nome sugere, compara os valores da máxima verossimilhança dos modelos. Para entender melhor o que está acontecendo vamos admitir que ![L_hat](https://raw.githubusercontent.com/IanniMuliterno/iannimuliterno.github.io/master/img/L_hat.png)0 é a máxima verossimilhança calculada com o modelo completo e ![L_hat](https://raw.githubusercontent.com/IanniMuliterno/iannimuliterno.github.io/master/img/L_hat.png) é a mesma métrica calculada depois que o modelo sofre a alteração que se quer testar. Multiplicar essa diferença por -2 permite que a métrica seja associada a uma distribuição qui-quadrado, logo para chegar a uma conclusão sobre os modelos, LR é comparado a um certo valor. Este tal valor é retirado da distribuição qui-quadrado e compara-lo com LR equivale a executar um teste de hipótese, onde a hipótese 0 é que não há evidências de que os modelos tem performances diferentes.  
 
