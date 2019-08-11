@@ -1,23 +1,8 @@
 ---
-
-
-
 layout: post
-
-
-
-title: Preditores, dropar ou n„o dropar? Transformar ou n„o transformar? (Primeiro post!)
-
-
-
+title: Preditores, dropar ou n√£o dropar? Transformar ou n√£o transformar? (Primeiro post!)
 image: /img/hello_world.jpeg
-
-
-
-tags: [comparaÁ„o,modelagem,m·xima_verossimilhanÁa]
-
-
-
+tags: [compara√ß√£o,modelagem,m√°xima_verossimilhan√ßa]
 ---
 
 
@@ -28,43 +13,13 @@ tags: [comparaÁ„o,modelagem,m·xima_verossimilhanÁa]
 
 Hello my friends, stay awhile and listen!
 
+ Primeiro post \o/. Esse √© um tema no qual coincidentemente esbarrei enquanto tamb√©m esbarrava no belo e amig√°vel ['beautiful-jekyll'](https://deanattali.com/beautiful-jekyll/). Combina√ß√£o de coincid√™ncias que me fez (*finalmente*) come√ßar a escrever.  
 
+ Vamos a quest√£o, recentemente me uni a um grupo de Devs e nossa primeira brincadeira oficial est√° sendo trabalhar com uma base de dados de pre√ßos de casas que consiste em algumas centenas de linhas e 80 vari√°veis. Depois de desbravar um pouco a base,observamos multicolinearidade (vulgo : *alguns preditores s√£o muito semelhantes entre si* ) ent√£o surgiram as ideias de como lidar. Criar uma outra vari√°vel que contenha informa√ß√£o de ambas e dropar as originais depois? Dropar uma e deixar outra? Se sim, qual dropar? Estamos viajando e na verdade n√£o precisa mexer em nada disso? Como saber o que √© melhor?   
 
+ Existem v√°rias formas de decidir e a primeira que me veio a mente foi o teste da raz√£o de verossimilhan√ßa, mas como se trata de um post sobre **como** tomar essa decis√£o, vamos colocar mais algumas formas de como chegar a ela. Sempre de forma mais intuitiva, simples e direta que minha habilidade de comunica√ß√£o permitir. *Antes de seguir, vale ressaltar que existe uma discuss√£o sobre 'multicolinearidade √© motivo suficiente para se livrar de uma vari√°vel?', como tudo na Estat√≠stica e suas vers√µes gourmet a resposta √© depende, ent√£o sempre que houver um tema importante, mesmo que eu n√£o avise, provavelmente tem uma discuss√£o intermin√°vel nos bastidores. Para prosseguir sem consci√™ncia pesada, vamos convenientemente supor que 'sim, multicolinearidade √© motivo suficiente para se livrar de uma vari√°vel'*.  
 
-
-
-
- Primeiro post \o/. Esse È um tema no qual coincidentemente esbarrei enquanto tambÈm esbarrava no belo e amig·vel ['beautiful-jekyll'](https://deanattali.com/beautiful-jekyll/). CombinaÁ„o de coincidÍncias que me fez (*finalmente*) comeÁar a escrever.  
-
-
-
-
-
-
-
- Vamos a quest„o, recentemente me uni a um grupo de Devs e nossa primeira brincadeira oficial est· sendo trabalhar com uma base de dados de preÁos de casas que consiste em algumas centenas de linhas e 80 vari·veis. Depois de desbravar um pouco a base,observamos multicolinearidade (vulgo : *alguns preditores s„o muito semelhantes entre si* ) ent„o surgiram as ideias de como lidar. Criar uma outra vari·vel que contenha informaÁ„o de ambas e dropar as originais depois? Dropar uma e deixar outra? Se sim, qual dropar? Estamos viajando e na verdade n„o precisa mexer em nada disso? Como saber o que È melhor?   
-
-
-
-
-
-
-
- Existem v·rias formas de decidir e a primeira que me veio a mente foi o teste da raz„o de verossimilhanÁa, mas como se trata de um post sobre **como** tomar essa decis„o, vamos colocar mais algumas formas de como chegar a ela. Sempre de forma mais intuitiva, simples e direta que minha habilidade de comunicaÁ„o permitir. *Antes de seguir, vale ressaltar que existe uma discuss„o sobre 'multicolinearidade È motivo suficiente para se livrar de uma vari·vel?', como tudo na EstatÌstica e suas versıes gourmet a resposta È depende, ent„o sempre que houver um tema importante, mesmo que eu n„o avise, provavelmente tem uma discuss„o intermin·vel nos bastidores. Para prosseguir sem consciÍncia pesada, vamos convenientemente supor que 'sim, multicolinearidade È motivo suficiente para se livrar de uma vari·vel'*.  
-
-
-
-
-
-
-
- Saber qual a melhor vers„o do modelo, de acordo com as alteraÁıes sugeridas acima, È uma Ûtima forma de decidir qual a melhor alteraÁ„o a se fazer. Ent„o eis aqui algumas mÈtricas para este fim:
-
-
-
-
-
-
+ Saber qual a melhor vers√£o do modelo, de acordo com as altera√ß√µes sugeridas acima, √© uma √≥tima forma de decidir qual a melhor altera√ß√£o a se fazer. Ent√£o eis aqui algumas m√©tricas para este fim:
 
  * **AIC**    
 
@@ -74,73 +29,27 @@ Hello my friends, stay awhile and listen!
 
 
 
-  O critÈrio de informaÁ„o de Akaike È uma mÈtrica de qualidade de modelo. 'k' È o n˙mero de vari·veis no modelo e '![L_hat](https://raw.githubusercontent.com/IanniMuliterno/iannimuliterno.github.io/master/img/L_hat.png)' È a m·xima verossimilhanÁa do modelo (que È de forma resumida, um valor que representa o qu„o bem o meu modelo explica os dados, vamos falar disso em outro post). O que acontece com essa mÈtrica quando dropamos vari·veis È que diminuimos o valor de 'k porÈm tambÈm diminuÌmos '![L_hat](https://raw.githubusercontent.com/IanniMuliterno/iannimuliterno.github.io/master/img/L_hat.png)' porque certamente nosso modelo vai ficar um pouco pior em explicar os dados. Observe que pela fÛrmula do AIC, o menor valor possÌvel significa o melhor modelo possÌvel, ent„o se vocÍ dropa uma vari·vel e de repente seu AIC que era -1000 passou para -800, È sinal de que vocÍ n„o deveria estar dropando tal vari·vel. Por outro lado se o AIC ficar ainda menor ou se a diferenÁa È Ìnfima (de -1000 para -990 por exemplo), È sinal de que o drop da vari·vel È aceit·vel.  
-
-
-
-
-
-
+  O crit√©rio de informa√ß√£o de Akaike √© uma m√©trica de qualidade de modelo. 'k' √© o n√∫mero de vari√°veis no modelo e '![L_hat](https://raw.githubusercontent.com/IanniMuliterno/iannimuliterno.github.io/master/img/L_hat.png)' √© a m√°xima verossimilhan√ßa do modelo (que √© de forma resumida, um valor que representa o qu√£o bem o meu modelo explica os dados, vamos falar disso em outro post). O que acontece com essa m√©trica quando dropamos vari√°veis √© que diminuimos o valor de 'k por√©m tamb√©m diminu√≠mos '![L_hat](https://raw.githubusercontent.com/IanniMuliterno/iannimuliterno.github.io/master/img/L_hat.png)' porque certamente nosso modelo vai ficar um pouco pior em explicar os dados. Observe que pela f√≥rmula do AIC, o menor valor poss√≠vel significa o melhor modelo poss√≠vel, ent√£o se voc√™ dropa uma vari√°vel e de repente seu AIC que era -1000 passou para -800, √© sinal de que voc√™ n√£o deveria estar dropando tal vari√°vel. Por outro lado se o AIC ficar ainda menor ou se a diferen√ßa √© √≠nfima (de -1000 para -990 por exemplo), √© sinal de que o drop da vari√°vel √© aceit√°vel.  
 
  * **BIC**  
 
-
-
    BIC = ln(n)k - 2ln(![L_hat](https://raw.githubusercontent.com/IanniMuliterno/iannimuliterno.github.io/master/img/L_hat.png))  
 
-
-
-   O critÈrio de informaÁ„o Bayesiano È bastante parecido com o AIC, e È avaliado da mesma forma, quanto menor melhor. A diferenÁa na fÛrmula È que o '2' È substituido por ln(n) onde n È o numero de observaÁıes, ou seja, o BIC È melhor em penalizar a complexidade do modelo. Em geral a an·lise do AIC concorda com a do BIC, quando elas discordam o comum È que o AIC esteja indicando que versıes mais complexas s„o melhores. No fim das contas, se vocÍ decidir que um deles È interessante para seu caso, o s·bio È usar os dois. Se esses carinhas mais simples chamaram sua atenÁ„o, aqui est· um breve post abordando [AIC vs BIC](https://www.methodology.psu.edu/resources/AIC-vs-BIC/), onde inclusive eles fazem a ousada afirmaÁ„o de que sua maior referÍncia deve ser o AIC se um falso negativo È um problema mais grave para vocÍ, e BIC caso contr·rio. Fiquem a vontade para investigar e decidir se concordam com isso.  
-
-
-
-
-
-
+   O crit√©rio de informa√ß√£o Bayesiano √© bastante parecido com o AIC, e √© avaliado da mesma forma, quanto menor melhor. A diferen√ßa na f√≥rmula √© que o '2' √© substituido por ln(n) onde n √© o numero de observa√ß√µes, ou seja, o BIC √© melhor em penalizar a complexidade do modelo. Em geral a an√°lise do AIC concorda com a do BIC, quando elas discordam o comum √© que o AIC esteja indicando que vers√µes mais complexas s√£o melhores. No fim das contas, se voc√™ decidir que um deles √© interessante para seu caso, o s√°bio √© usar os dois. Se esses carinhas mais simples chamaram sua aten√ß√£o, aqui est√° um breve post abordando [AIC vs BIC](https://www.methodology.psu.edu/resources/AIC-vs-BIC/), onde inclusive eles fazem a ousada afirma√ß√£o de que sua maior refer√™ncia deve ser o AIC se um falso negativo √© um problema mais grave para voc√™, e BIC caso contr√°rio. Fiquem a vontade para investigar e decidir se concordam com isso.  
 
  * **Cross-Validation**  
 
+ Cross-validation √© um m√©todo que costuma ser aplicado em observa√ß√µes (ou inst√¢ncias) e consiste em dividir o banco em partes iguais, de modo que as vari√°veis em cada 'fatia' do banco estejam distribu√≠das da mesma maneira. Ent√£o separa uma dessas fatias, treina o modelo usando todas as outras observa√ß√µes e ent√£o testa usando a parte que voc√™ separou, repetindo o processo at√© que se tenha usado todas as fatias do banco como teste, deste modo √© poss√≠vel prever o erro do modelo de forma mais consistente. (*existem varia√ß√µes do cross-validation, a que foi descrita aqui se chama 'leave-one-out'*).
 
-
- Cross-validation È um mÈtodo que costuma ser aplicado em observaÁıes (ou inst‚ncias) e consiste em dividir o banco em partes iguais, de modo que as vari·veis em cada 'fatia' do banco estejam distribuÌdas da mesma maneira. Ent„o separa uma dessas fatias, treina o modelo usando todas as outras observaÁıes e ent„o testa usando a parte que vocÍ separou, repetindo o processo atÈ que se tenha usado todas as fatias do banco como teste, deste modo È possÌvel prever o erro do modelo de forma mais consistente. (*existem variaÁıes do cross-validation, a que foi descrita aqui se chama 'leave-one-out'*).
-
-
-
- Usando este raciocÌnio, È possÌvel fazer o *leave-one-out* com as vari·veis, comparando a taxa de erro dos modelos com este mesma taxa calculada utilizando o banco de treino completo. Isso È bem parecido com o que È preciso fazer quando queremos usar o AIC ou BIC como mÈtricas, porÈm o Cross-validation È mais indicado para uma 'busca as cegas'.
-
-
-
-
-
-
+ Usando este racioc√≠nio, √© poss√≠vel fazer o *leave-one-out* com as vari√°veis, comparando a taxa de erro dos modelos com este mesma taxa calculada utilizando o banco de treino completo. Isso √© bem parecido com o que √© preciso fazer quando queremos usar o AIC ou BIC como m√©tricas, por√©m o Cross-validation √© mais indicado para uma 'busca as cegas'.
 
  * **Likelihood Ratio Test**  
 
-
-
  LR = -2\[ln(![L_hat](https://raw.githubusercontent.com/IanniMuliterno/iannimuliterno.github.io/master/img/L_hat.png)0)- ln(![L_hat](https://raw.githubusercontent.com/IanniMuliterno/iannimuliterno.github.io/master/img/L_hat.png))\]  
 
+ O teste da raz√£o da verossimilhan√ßa (*LR*), como o nome sugere, compara os valores da m√°xima verossimilhan√ßa dos modelos. Para entender melhor o que est√° acontecendo vamos admitir que ![L_hat](https://raw.githubusercontent.com/IanniMuliterno/iannimuliterno.github.io/master/img/L_hat.png)0 √© a m√°xima verossimilhan√ßa calculada com o modelo completo e ![L_hat](https://raw.githubusercontent.com/IanniMuliterno/iannimuliterno.github.io/master/img/L_hat.png) √© a mesma m√©trica calculada depois que o modelo sofre a altera√ß√£o que se quer testar. Multiplicar essa diferen√ßa por -2 permite que a m√©trica seja associada a uma distribui√ß√£o qui-quadrado, logo para chegar a uma conclus√£o sobre os modelos, LR √© comparado a um certo valor. Este tal valor √© retirado da distribui√ß√£o qui-quadrado e compara-lo com LR equivale a executar um teste de hip√≥tese, onde a hip√≥tese 0 √© que n√£o h√° evid√™ncias de que os modelos tem performances diferentes.  
 
 
- O teste da raz„o da verossimilhanÁa (*LR*), como o nome sugere, compara os valores da m·xima verossimilhanÁa dos modelos. Para entender melhor o que est· acontecendo vamos admitir que ![L_hat](https://raw.githubusercontent.com/IanniMuliterno/iannimuliterno.github.io/master/img/L_hat.png)0 È a m·xima verossimilhanÁa calculada com o modelo completo e ![L_hat](https://raw.githubusercontent.com/IanniMuliterno/iannimuliterno.github.io/master/img/L_hat.png) È a mesma mÈtrica calculada depois que o modelo sofre a alteraÁ„o que se quer testar. Multiplicar essa diferenÁa por -2 permite que a mÈtrica seja associada a uma distribuiÁ„o qui-quadrado, logo para chegar a uma conclus„o sobre os modelos, LR È comparado a um certo valor. Este tal valor È retirado da distribuiÁ„o qui-quadrado e compara-lo com LR equivale a executar um teste de hipÛtese, onde a hipÛtese 0 È que n„o h· evidÍncias de que os modelos tem performances diferentes.  
-
-
-
-
-
-
-
-
-
-
-
- Sim, explicar ‡ fundo o LR È um pouco tricky, precisarÌamos ainda chafurdar um pouco em teste de hipÛtese, em entender o b·sico da distribuiÁ„o qui-quadrado e saber o que acontece no c·lculo da m·xima verossimilhanÁa. Felizmente, mesmo que o LR n„o seja o mais amig·vel dos mÈtodos, graÁas a softwares como o R n„o È necess·rio implementar o teste, apenas compreender o que acontece por tr·s dele. Se mesmo assim agora vocÍ quer saber *o que diabos acontece no c·lculo da m·xima verossimilhanÁa*, ou vocÍ n„o se conforma porque eu n„o falei mais sobre o valor com o qual LR È comparado no fim das contas, vocÍ pode [clicar aqui](https://en.wikipedia.org/wiki/Likelihood-ratio_test) e [aqui](http://www.portalaction.com.br/confiabilidade/421-metodo-de-maxima-verossimilhanca).
-
-
-
-
-
-
+ Sim, explicar √† fundo o LR √© um pouco tricky, precisar√≠amos ainda chafurdar um pouco em teste de hip√≥tese, em entender o b√°sico da distribui√ß√£o qui-quadrado e saber o que acontece no c√°lculo da m√°xima verossimilhan√ßa. Felizmente, mesmo que o LR n√£o seja o mais amig√°vel dos m√©todos, gra√ßas a softwares como o R n√£o √© necess√°rio implementar o teste, apenas compreender o que acontece por tr√°s dele. Se mesmo assim agora voc√™ quer saber *o que diabos acontece no c√°lculo da m√°xima verossimilhan√ßa*, ou voc√™ n√£o se conforma porque eu n√£o falei mais sobre o valor com o qual LR √© comparado no fim das contas, voc√™ pode [clicar aqui](https://en.wikipedia.org/wiki/Likelihood-ratio_test) e [aqui](http://www.portalaction.com.br/confiabilidade/421-metodo-de-maxima-verossimilhanca).
 
  A presto!
-
