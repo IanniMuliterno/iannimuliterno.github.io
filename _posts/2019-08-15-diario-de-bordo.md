@@ -7,7 +7,7 @@ tags: [diário]
 
 ## Diapers
 
- Hello again! Este é o início do meu diário de bordo, onde deixo as recordações de dias de tempestade e o que fez com que o sol brilhasse no horizonte novamente. 
+ Hello again! Este é o início do meu diário de bordo, onde deixo as recordações de dias de tempestade na vida de um marujo que navega o grande oceano que são os dados. A intenção é lembrar do que fez com que o sol brilhasse no horizonte novamente. 
  
  agosto/2019  
  objetivo : atualizar relatório que analisa consumo de fraldas para pessoas com filhos e consumidores sem filhos (considerados 'gifters') porque provavelmente estão comprando para chá de bebê  
