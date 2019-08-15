@@ -48,7 +48,7 @@ divergências em alguns gráficos
 Solução: descobrimos um filtro não registrado, valor_unitario/unidade deveria ser maior que 0.2 e menor que 5
 
 
-Dicas para o outros tripulantes.
+#### Dicas para o outros tripulantes.
 
 1 - para cpfs iguais e anos iguais copie a classificação antiga, você não quer mudar o passado, só atualizar o relatório.  
 
