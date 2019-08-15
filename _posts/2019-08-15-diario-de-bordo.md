@@ -7,6 +7,8 @@ tags: [diário]
 
 ## Diapers
 
+ Hello again! Este é o início do meu diário de bordo, onde deixo as recordações de dias de tempestade e o que fez com que o sol brilhasse no horizonte novamente. 
+ 
  agosto/2019  
  objetivo : atualizar relatório que analisa consumo de fraldas para pessoas com filhos e consumidores sem filhos (considerados 'gifters') porque provavelmente estão comprando para chá de bebê  
  previsão do tempo : nublado  
@@ -14,12 +16,12 @@ tags: [diário]
 
 - #### problema 1  
 histograma de idade (apenas o de gasto)  com grande aumento em pessoas com mais de 55 anos (mesmo depois de lidar com todos os outros problemas essa diferença permanece mas não desaparece quando se usa a classificação nova de parents)  
- solução : pegar a base de saída usado no primeiro relatorio e extrair 'id_cpf, ano, cluster' para replicar em todos os cpfs do novo relatorio nos anos correspondentes, sendo que a nova classificação lida apenas com o periodo novo 
+ solução : pegar a base de saída usado no primeiro relatorio e extrair 'id_cpf, ano, cluster' para replicar em todos os cpfs do novo relatorio nos anos correspondentes, sendo que a nova classificação lida apenas com o periodo novo. 
 
 - #### problema 2:  
 ao verificar mais de perto comportamentos por cpfs vimos que algumas pessoas tinham informações diferentes para um mesmo periodo no arquivo que iria para o BI, mesmo que as extrações sejam identicas neste mesmo periodo.  
  solução: usar mesmo limite maximo de quantidade das fraldas na limpeza de variaveis  
- solução parte 2: uma parte do script novo utilizava inner join quando deveria utilizar left join, então o filtro de absorvente, quando se carrega o banco 'suporte' no script "~/melhorar_definicao_parents_baseada_antiga.R", interfere na presença de algumas linhas (parte do codigo abaixo)
+ solução parte 2: uma parte do script novo utilizava inner join quando deveria utilizar left join, então o filtro de absorvente, quando se carrega o banco 'suporte' no script "~/melhorar_definicao_parents_baseada_antiga.R", interfere na presença de algumas linhas (parte do codigo abaixo, com correção).
 
 
 ```r
@@ -36,6 +38,7 @@ intervalo <- invoice_interval(suporte)
 intervalo[,int_compra:= ifelse(is.nan(int_compra),365,int_compra)] #(valor nan significa apenas 1 compra naquele ano, então nan foi substituido por 365)
 
 all <- fread("~/treino_parent_06_2019.txt")
+# o problema estava aqui
 all <- merge(all,intervalo, all.x = T, by = c("id_cpf","ano"))
 ```
 
