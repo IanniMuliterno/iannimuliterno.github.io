@@ -8,8 +8,8 @@ tags: [diário]
  Segundo registro do diário de bordo. Em empresas de TI, é comum que certos processos entrem na rotina e precisem ser executados com frequência, então para se livrar da repetição manual, é interessante tornar o script automático. Em geral isso consiste em aceitar entradas dinâmicas, preparar warnings para alertar ocorrências estranhas entre outros cuidados e dá trabalho até que o script esteja realmente sem arestas, certo?! As vezes precisamos revisitar aquele belo e polido script, para acrescentar ou otimizar coisas e é claro, é necessário repetir o processo de aparar arestas, de modo que ele não quebre e te faça querer cometer atrocidades quando descobrir que aquele script que leva 12 horas para rodar e você iniciou no dia anterior, quebrou no meio da noite enquanto você estava dormindo e sonhando que iria ter o resultado no dia seguinte. No diário de hoje deixo uma nota para mim e a quem interessar, sobre algo que chamamos de 'smoke test', um teste que garante que sua manipulação não quebrou nada, para não esquecer o passo a passo necessário para polir com sucesso seu script. 
  
  agosto/2019  
- objetivo : Manipular scripts automáticos
- previsão do tempo : ensolarado (porém frio)
+ objetivo : Manipular scripts automáticos  
+ previsão do tempo : ensolarado (porém frio)  
  sensação térmica : 15°C
 
 - #### Passo 1  
@@ -42,5 +42,8 @@ O segundo problema em rodar coisas em muitas máquinas diferentes é em relaçã
 
 Aliás, este problema está dentro do anterior, já que algumas bibliotecas rodam apenas em versões específicas. 
 
-- #### Passo 4
+- #### Passo 4  
+Terceiro cuidado para ter multiplas maquinas rodando seu script. Se o script usa paralelização em algum momento, tenha certeza de que o cálculo de cores utilizados será dinâmico, outras máquinas podem não ter a mesma quantidade de cores que a sua.
+
+- #### Passo 5    
  #cuidado com fwrites + criação de bases historicas
