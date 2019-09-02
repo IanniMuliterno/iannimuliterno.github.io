@@ -15,13 +15,13 @@ tags: [diário]
  sensação térmica : 2°C
 
 - #### problema 1  
-histograma de idade (apenas o de gasto)  com grande aumento em pessoas com mais de 55 anos (mesmo depois de lidar com todos os outros problemas essa diferença permanece mas não desaparece quando se usa a classificação nova de parents)  
- solução : pegar a base de saída usado no primeiro relatorio e extrair 'id_cpf, ano, cluster' para replicar em todos os cpfs do novo relatorio nos anos correspondentes, sendo que a nova classificação lida apenas com o periodo novo. 
+Havia um histograma de idade (relacionado ao gasto com fraldas)  que apresentava grande aumento em pessoas de uam determinada faixa etária, em relação a análise anterior e a proporção da mudança não parecia coerente.
+ solução : pegar a base de saída usado no primeiro relatório e extrair as variáveis 'pessoa, ano, classificação (parent/gifter)' para replicar em todas as pessoas do novo relatório no período correspondente. Então o período anterior, que já havia sido analisado, tem seus resultados intocados e a nova classificação lida apenas com o periodo novo. 
 
 - #### problema 2:  
-ao verificar mais de perto comportamentos por cpfs vimos que algumas pessoas tinham informações diferentes para um mesmo periodo no arquivo que iria para o BI, mesmo que as extrações sejam identicas neste mesmo periodo.  
- solução: usar mesmo limite maximo de quantidade das fraldas na limpeza de variaveis  
- solução parte 2: uma parte do script novo utilizava inner join quando deveria utilizar left join, então o filtro de absorvente, quando se carrega o banco 'suporte' no script "~/melhorar_definicao_parents_baseada_antiga.R", interfere na presença de algumas linhas (parte do codigo abaixo, com correção).
+ao verificar mais de perto os comportamentos de consumo, vimos que algumas pessoas tinham informações diferentes para um mesmo período no arquivo que iria para o Dashboard, mesmo que as bases sejam idênticas neste mesmo período.  
+ solução: usar mesmas técnicas de tratamento de outliers aplicada no tratamento da base usada no primeiro relatório. 
+ solução parte 2: uma parte do script novo utilizava inner join quando deveria utilizar left join, então o filtro que remove da base um padrão que vamos chamar de "tipo_indesejado", interfere na presença de algumas linhas (parte do codigo abaixo, com correção).
 
 
 ```r
@@ -39,23 +39,25 @@ intervalo[,int_compra:= ifelse(is.nan(int_compra),365,int_compra)] #(valor nan s
 
 all <- fread("~/treino_parent_06_2019.txt")
 # o problema estava aqui
-all <- merge(all,intervalo, all.x = T, by = c("id_cpf","ano"))
+all <- merge(all,intervalo, all.x = T, by = c("pessoa","ano"))
 ```
 
 
 - #### problema 3:  
 divergências em alguns gráficos  
-Solução: descobrimos um filtro não registrado, valor_unitario/unidade deveria ser maior que 0.2 e menor que 5
+Solução: descobrimos um filtro não documentado:A não documentação deste filtro me custou alguns minutos explorando a base para descobrir que existia limite inferior e superior na variável em questão. Eis um relato da importância de documentar as coisas.
 
 
-#### Dicas para o outros tripulantes.
+#### Dicas para o outros tripulantes ao lidar com um projeto que segue a mesma idéia (de atualizar um relatório).
 
-1 - para cpfs iguais e anos iguais copie a classificação antiga, você não quer mudar o passado, só atualizar o relatório.  
+1 - Se sua atualização precisa mostrar parte da informação antiga para refrescar a memória do cliente, importe tanto quanto for possível do relatório anterior, você não quer mudar o passado, só atualizar o relatório.  
 
-2 - treine um modelo com a classificação antiga no conjunto de treino e as mesmas métricas para classificar as pessoas que ficaram de fora no passo anterior (acrescente alguma métrica se quiser e achar viável).  
+2 - Se essa atualização envolve uma classificação, treine um modelo com a classificação antiga no conjunto de treino e as mesmas métricas para classificar as entradas novas (acrescente alguma métrica se quiser e achar viável).  
 
-3 - pense bem se inner_join é a opção certa e se decidir que sim confira se não sumiu nada que deveria continuar existindo.  
+3 - pense bem se inner_join é a opção certa e se decidir que sim confira se não sumiu nada que deveria continuar existindo.
 
-4 - Leve a dica anterior para sua vida.  
+4 - Documente tudo o que você fizer, mesmo que você tenha memória fotográfica outras pessoas podem precisar entender o que foi feito.
+
+5 - Leve as dicas 3 e 4 para sua vida.  
 
 
