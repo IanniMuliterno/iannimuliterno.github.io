@@ -50,7 +50,7 @@ Solução: descobrimos um filtro não documentado:A não documentação deste fi
 
 #### Dicas para o outros tripulantes ao lidar com um projeto que segue a mesma idéia (de atualizar um relatório).
 
-1 - Se sua atualização precisa mostrar parte da informação antiga para refrescar a memória do cliente, importe tanto quanto for possível do relatório anterior, você não quer mudar o passado, só atualizar o relatório.  
+1 - Se sua atualização precisa mostrar parte da informação antiga para refrescar a memória do cliente, importe tanto quanto for possível do relatório anterior, você não quer mudar o passado, só atualizar o relatório. ( Isto __não__ se estende a replicar erros, ok?! ) 
 
 2 - Se essa atualização envolve uma classificação, treine um modelo com a classificação antiga no conjunto de treino e as mesmas métricas para classificar as entradas novas (acrescente alguma métrica se quiser e achar viável).  
 
