@@ -45,5 +45,36 @@ Aliás, este problema está dentro do anterior, já que algumas bibliotecas roda
 - #### Passo 4  
 Terceiro cuidado para ter multiplas maquinas rodando seu script. Se o script usa paralelização em algum momento, tenha certeza de que o cálculo de cores utilizados será dinâmico, outras máquinas podem não ter a mesma quantidade de cores que a sua.
 
-- #### Passo 5    
- #cuidado com fwrites + criação de bases historicas
+- #### Passo 5  
+Último ponto, o que vai sair do seu script? Seja a saída um modelo, imagens ou bases, é interessante que haja uma rotina no R que garanta que, caso o script esteja rodando pela segunda vez, sua saída já existente seja copiada para uma pasta auxiliar ( que eu costumo chamar de histórico) pois você pode precisar do seu resultado anterior. Abaixo, complemento o exemplo dado no passo um, com uma forma de fazer isso no R.
+
+```r
+library(tidyverse, quietly = TRUE)
+library(data.table, quietly = TRUE)
+
+#----------------------------------------------------------------------
+# Argumentos
+# este comando permite que o script seja chamado por um bash, recebendo dele os argumentos setados (recomendo checar o help do commandArgs)
+arg=commandArgs(trailingOnly = T)
+dados_entrada = arg[1]
+parametro2 = arg[2]
+path_saida = arg[3]
+
+# argumentos para smoke test
+# dados_entrada = ~/minha_menor_base.csv
+# parametro2 = 2019
+# path_saida = "~/output_teste/"
+
+# captura a data e hora em que a saida foi concluída.
+mytime <- format(Sys.time(), format = "%Y_%m_%d_%H_%M_%S")
+
+# Essa linha sobrescreve o arquivo de saída sempre que é executada
+fwrite(arquivo_saida,paste0(path_saida,"saida",".txt"))
+
+# Essa linha deixa o arquivo_saida salvo no diretorio 'historico' informando a data em que ele foi gerado.
+# Como a variável 'mytime' está sempre mudando, os arquivos no historico não serão sobrescritos
+fwrite(arquivo_saida,paste0(path_saida,"historico/saida_",mytime,".txt"))
+```
+
+Essas foram minhas observações, por enquanto ter esses 5 passos em mente tem funcionado, mas *by all means* compartilhem boas práticas vocês acham que deveriam estar citadas aqui.  
+
