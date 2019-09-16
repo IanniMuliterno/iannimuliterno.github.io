@@ -27,6 +27,15 @@ dados_entrada = arg[1]
 parametro2 = arg[2]
 path_saida = arg[3]
 
+#Este 'if' é mais uma boa prática, caso o usuário cometa erros ao setar os argumentos, o script para na hora, e retorna um aviso.
+#O aviso abaixo orienta o usuario sobre quais argumentos usar e a ordem em que devem ser informados. É ativado quando o 
+#usuário informa uma quantidade incorreta de argumentos. Algo simples, normalmente um script precisa de vários avisos e checkups. 
+if (length(args) != 3) {
+  message("Os argumentos são: <path_file_input> <parametro2> <path_saida> \n O script assume entrada zipada")
+  quit()
+}
+
+
 # argumentos para smoke test
 # dados_entrada = ~/minha_menor_base.csv
 # parametro2 = 2019
@@ -59,6 +68,14 @@ arg=commandArgs(trailingOnly = T)
 dados_entrada = arg[1]
 parametro2 = arg[2]
 path_saida = arg[3]
+
+#Este 'if' é mais uma boa prática, caso o usuário cometa erros ao setar os argumentos, o script para na hora, e retorna um aviso.
+#O aviso abaixo orienta o usuario sobre quais argumentos usar e a ordem em que devem ser informados. É ativado quando o 
+#usuário informa uma quantidade incorreta de argumentos. Algo simples, normalmente um script precisa de vários avisos e checkups. 
+if (length(args) != 3) {
+  message("Os argumentos são: <path_file_input> <parametro2> <path_saida> \n O script assume entrada zipada")
+  quit()
+}
 
 # argumentos para smoke test
 # dados_entrada = ~/minha_menor_base.csv
