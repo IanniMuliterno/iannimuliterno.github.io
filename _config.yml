@@ -41,7 +41,7 @@ navbar-links:
 
 # If you want to have an image logo in the top-left corner instead of the title text,
 # then specify the following parameter
- title-img: "/img/avatar-icon.png"
+# title-img: "/img/avatar-icon.png"
 
 # --- Background colour/image options --- #
 
@@ -120,8 +120,8 @@ share-links-active:
 # whether or not you want to allow users to opt out of tracking.
 
 #matomo:
-  site_id: "9"
-  uri: "demo.wiki.pro"
+#  site_id: "9"
+#  uri: "demo.wiki.pro"
 #  opt-out: true
 
 # --- Comments --- #
@@ -137,7 +137,7 @@ share-links-active:
 
 # To use Staticman comments, fill in repository, branch, and endpoint
 staticman:
-  repository : "IanniMuliterno/iannimuliterno.github.io"# GitHub username/repository eg. "IanniMuliterno/iannimuliterno.github.io"
+  repository : # GitHub username/repository eg. "IanniMuliterno/iannimuliterno.github.io"
   branch     : master # If you're not using `master` branch, then you also need to update the `branch` parameter in `staticman.yml`
   endpoint   : # URL of your own deployment, with a trailing slash (will fallback to a public GitLab instance) eg. https://<your-api>/v3/entry/github/
   reCaptcha:
