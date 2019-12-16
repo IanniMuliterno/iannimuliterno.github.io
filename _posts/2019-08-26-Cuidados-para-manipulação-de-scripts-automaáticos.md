@@ -95,5 +95,5 @@ fwrite(arquivo_saida,paste0(path_saida,"saida",".txt"))
 fwrite(arquivo_saida,paste0(path_saida,"historico/saida_",mytime,".txt"))
 ```
 
-Essas foram minhas observações, por enquanto ter esses 5 passos em mente tem funcionado, mas *by all means* compartilhem boas práticas vocês acham que deveriam estar citadas aqui.  
+Essas foram minhas observações, por enquanto ter esses 5 passos em mente tem funcionado, mas *by all means* compartilhem boas práticas que vocês acham que deveriam estar citadas aqui.  
 
