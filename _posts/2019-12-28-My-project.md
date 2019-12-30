@@ -9,7 +9,7 @@
  
   Nesta base é possível saber identificar o item comprado, seu valor, unidades compradas e data de compra, além das variáveis identificadores de transação e cliente. Esse tipo de informação rende uma análise exploratória bacana, que vamos ver mais para frente, por hora é necessário preparar os dados para o "formato de entrada" de um teste A/B. Fazemos isso construindo uma variável que responda a seguinte pergunta : " Qual versão do produto mais fez as pessoas voltarem para compra-lo? ". 
   
-  ```{r, echo=FALSE}
+  ```r
 dt_teste <- dt %>% 
   group_by(user) %>%
   summarise(success = sum(volume[item == "Item_1"])) %>%
@@ -21,8 +21,9 @@ dt_teste
 
   Considerando que a base `dt` já está filtrada para retornar apenas resultados a partir do início do experimento, temos uma contagem de sucessos e fracassos por pessoa caso ela tenha comprado ou não o item de interesse, esta variável segue distribuição binomial e a probabilidade de sucesso `p` desta distribuição é conhecida como taxa de conversão. Nos moldes bayesianos podemos usar a relação beta-binomial tendo a taxa de conversão como uma variável que segue distribuição beta em que alpha é o número de sucessos e beta o número de fracassos.
   
-  ![P](https://raw.githubusercontent.com/IanniMuliterno/iannimuliterno.github.io/master/img/P.png)
-  
+  <p align="center">
+   <img src="https://raw.githubusercontent.com/IanniMuliterno/iannimuliterno.github.io/master/img/P.png">
+ </p>
  Fazendo essa associação, podemos usar a beta para fazer simulações da taxa de conversão. 
  
  Podemos também escrever matematicamente a resposta para a nossa pergunta, como: " Qual a probabilidade de que o `p` da versão B seja maior que o `p` da versão A? "
