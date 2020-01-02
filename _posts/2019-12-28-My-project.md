@@ -88,6 +88,4 @@ ggplot(CR, aes(x=CR)) +
   
   Suponha que você está tentando descobrir se taxas de conversão são estatisticamente diferentes com um teste frequentista, ou seja, você está olhando para um valor de significância. Porém você está ansioso por resultados e checa o tempo todo como anda seu experimento, a questão é que a significância representa a chance de que aquele resultado relevante que você está vendo aconteceu por acaso e isso é calculado levando em consideração que existe um valor fixo de amostra, se essa regra é violada, as chances de tomar uma decisão errada aumentam. 
   
-  https://booking.ai/is-your-a-b-testing-effort-just-chasing-statistical-ghosts-eb85602bef7e
-  
  ### Passando para o shiny
