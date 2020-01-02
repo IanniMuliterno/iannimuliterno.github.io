@@ -2,7 +2,9 @@
 layout: post
 title: Testes A/B bayesianos no shiny
 tags: [R, Estatística, talk, BI]
+
 ---
+
 
  Como prometido no post anterior, vou compartilhar aqui minha apresentação para quem não foi ao SatRday e entrar um pouco mais em detalhes que não cabem numa lightning talk. 
  
