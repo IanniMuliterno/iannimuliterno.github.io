@@ -88,6 +88,81 @@ ggplot(CR, aes(x=CR)) +
  
 <b><font size="12">Entendendo melhor o que pode acontecer na versão frequentista</font></b>
   
-  Suponha que você está tentando descobrir se taxas de conversão são estatisticamente diferentes com um teste frequentista, ou seja, você está olhando para um valor de significância. Porém você está ansioso por resultados e checa o tempo todo como anda seu experimento, a questão é que a significância representa a chance de que aquele resultado relevante que você está vendo aconteceu por acaso e isso é calculado levando em consideração que existe um valor fixo de amostra, se essa regra é violada, as chances de tomar uma decisão errada aumentam. 
+  Suponha que você está tentando descobrir se taxas de conversão são estatisticamente diferentes com um teste frequentista, ou seja, você está olhando para um valor de significância. Porém você está ansioso por resultados e checa o tempo todo como anda seu experimento, a questão é que a significância representa a chance de que aquele resultado relevante que você está vendo aconteceu por acaso e isso é calculado levando em consideração que existe um valor fixo de amostra, se essa regra é violada, as chances de tomar uma decisão errada aumentam. Para ficar mais claro, simulei um fenômeno similar usando o G-test para responder a pergunta do teste A/B ( " Qual versão do produto mais fez as pessoas voltarem para compra-lo? " ). Segue o script com o passo a passo comentado.
+  
+  ```r
+# g test simulação
+library(DescTools)
+set.seed(487151)
+
+# primeiramente, crio uma amostra (audience) de 100000 unidades com taxa de conversão = 4%
+samp_size <- 100000
+CR <- .04
+
+full_audience <- rbinom(samp_size,1,CR)
+
+# divido aleatoriamente essas unidades em 2 grupos do mesmo tamanho criando A_audience e B_audience
+index_split <- sample(1:length(full_audience),length(full_audience)/2)
+
+A_audience <- full_audience[index_split]
+B_audience <- full_audience[-index_split]
+
+# rodo o teste comparando A e B, como eles vem da mesma distribuição não devem ser considerados estatisticamente diferentes
+# ou seja, esperamos um p.valor "grande".
+GTest(A_audience,B_audience) #encontramos o seguinte p-value = 0.1884
+
+# começando a rodar o teste repetidas vezes a partir de 500 unidades em cada audience
+
+store_sig5 <- store_sig10 <- numeric()
+
+A_peek0_index <- sample(1:length(A_audience),500)
+B_peek0_index <- sample(1:length(B_audience),500)
+
+A_peek0 <- A_audience[A_peek0_index]
+B_peek0 <- B_audience[B_peek0_index]
+
+# remove as pessoas já selecionadas para evitar repetição
+A_remain <- A_audience[-A_peek0_index]
+B_remain <- B_audience[-B_peek0_index]
+
+# Roda o teste e armazena o primeiro resultado
+test_ <- GTest(A_peek0,B_peek0)
+
+# os vetores são flags
+store_sig10[1] <- (test_$p.value < .1) # 1 se o p.valor informa 10% de significância
+store_sig5[1] <- (test_$p.value < .05) # 1 se o p.valor informa 5% de significância
+
+# loop que refaz o teste por mais 300 vezes, em cada reteste cada audience tem 50 unidades a mais
+# isso representa, numa situação real, o passar de um intervalo de tempo, onde o responsável pelo experimento decide mais uma vez "espiar" o resultado do teste antes que os audiences atinjam o tamanho planejado.
+
+for(i in 2:301){
+  A_add_index <- sample(1:length(A_remain),50)
+  B_add_index <- sample(1:length(B_remain),50)
+  
+  A_add <- A_remain[A_add_index] 
+  B_add <- B_remain[B_add_index]
+  
+  A_remain <- A_remain[-A_add_index] 
+  B_remain <- B_remain[-B_add_index]
+  
+  A_peek0 <- c(A_peek0,A_add)
+  B_peek0 <- c(B_peek0,B_add)
+
+  test_ <- GTest(A_peek0,B_peek0)
+  
+  store_sig10[i] <- (test_$p.value < .1)
+  store_sig5[i] <- (test_$p.value < .05)
+  
+  }
+  
+#numa simulação de teste de hipotese, pelo próprio significado do p.valor, espera-se que a proporção de falsos positivos ao acaso seja bastante próximo de 5% se estamos testando com p.valor de 5%. A regra é análoga para outros valores do p.valor 
+# Porém, realizando o teste repetidas vezes a medida que a amostra aumenta retorna as proporções abaixo :
+
+mean(store_sig5) # 0.1960133
+mean(store_sig10) # 0.6179402
+
+# muito maiores que o proposto pelo teste e principalmente se acontece no início desse processo de repetição, pode levar os responsável a parar o experimento e tomar uma decisão baseada num falso positivo.
+
+  ```
 
 <b><font size="12">Passando para o shiny</font></b>
