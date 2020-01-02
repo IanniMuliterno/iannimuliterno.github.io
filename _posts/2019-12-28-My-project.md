@@ -8,7 +8,7 @@ tags: [R, Estatística, talk, BI]
 
  Como prometido no post anterior, vou compartilhar aqui minha apresentação para quem não foi ao SatRday e entrar um pouco mais em detalhes que não cabem numa lightning talk. 
  
-<b><p><font size="20">Explicando e contextualizando o teste</font></p></b>
+<b><font size="15">Explicando e contextualizando o teste</font></b>
  
  O objetivo do projeto é executar testes A/B bayesiano com shiny, para explicar o teste A/B,  vamos  pensar num contexto de mercado e imaginar uma rede de grande porte que quer lançar um novo produto de marca própria e tem a versão A e B desse produto. Para embasar a decisão final eles querem saber qual produto vai ter melhor aceitação por parte dos clientes, então eles recorrem aos clientes cadastrados no programa de fidelidade para executar um experimento, oferecendo amostras grátis da versão A para metade dessas pessoas e a versão B para a outra.
 
