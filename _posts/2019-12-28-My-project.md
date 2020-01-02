@@ -8,7 +8,7 @@ tags: [R, Estatística, talk, BI]
 
  Como prometido no post anterior, vou compartilhar aqui minha apresentação para quem não foi ao SatRday e entrar um pouco mais em detalhes que não cabem numa lightning talk. 
  
-<b><font size="15">Explicando e contextualizando o teste</font></b>
+<b><font size="12">Explicando e contextualizando o teste</font></b>
  
  O objetivo do projeto é executar testes A/B bayesiano com shiny, para explicar o teste A/B,  vamos  pensar num contexto de mercado e imaginar uma rede de grande porte que quer lançar um novo produto de marca própria e tem a versão A e B desse produto. Para embasar a decisão final eles querem saber qual produto vai ter melhor aceitação por parte dos clientes, então eles recorrem aos clientes cadastrados no programa de fidelidade para executar um experimento, oferecendo amostras grátis da versão A para metade dessas pessoas e a versão B para a outra.
 
@@ -86,8 +86,8 @@ ggplot(CR, aes(x=CR)) +
  
  Observe o exemplo no chunk acima e vamos voltar mais uma vez para o cenário da 'rede de mercado que quer lançar um produto', para entender porque usar a versão bayesiana desse teste é interessante. No contexto de mercado as pessoas estão ansiosas por resultados e a pessoa que está rodando o teste, pode dar uma espiada na base, duas semanas depois do experimento ter começado e ver que na versão A 35 de 50 pessoas recompraram e na versão B 35 de 40 pessoas recompraram e isso pode levar a crer que a versão B foi melhor e que realmente houve esse ganho relativo de 25%. Nos moldes frequentistas existe o risco de que o resultado do teste seja significativo e eles simplesmente acreditem nesse resultado, no molde bayesiano o resultado é que a probabilidade disso ser verdade é de 50.1%. a medida que a evidência for ficando mais forte, ou seja, se essa relação se mantiver a medida que mais pessoas são observadas, esses 50.1% vão aumentar, dando uma noção se realmente podemos confiar na performance que estamos vendo e parar o teste.
  
-<b><p><font size="20">Entendendo melhor o que pode acontecer na versão frequentista</font></p></b>
+<b><font size="12">Entendendo melhor o que pode acontecer na versão frequentista</font></b>
   
   Suponha que você está tentando descobrir se taxas de conversão são estatisticamente diferentes com um teste frequentista, ou seja, você está olhando para um valor de significância. Porém você está ansioso por resultados e checa o tempo todo como anda seu experimento, a questão é que a significância representa a chance de que aquele resultado relevante que você está vendo aconteceu por acaso e isso é calculado levando em consideração que existe um valor fixo de amostra, se essa regra é violada, as chances de tomar uma decisão errada aumentam. 
 
-<b><p><font size="20">Passando para o shiny</font></p></b>
+<b><font size="12">Passando para o shiny</font></b>
