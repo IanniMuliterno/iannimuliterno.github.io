@@ -166,3 +166,21 @@ mean(store_sig10) # 0.6179402
   ```
 
 <b><font size="12">Passando para o shiny</font></b>
+
+
+Uma vez pronta, resolvi passar a ideia descrita aqui para um aplicativo em shiny, vamos pegar uma base que se pareça com a base ilustrativa que mostrei, construir a variável a ser analisada e rodar o teste. O aplicativo em formato de dashboard é apresentado em três abas, são elas: ``Sumário","Exploratória" e "Peek". A primeira introduz a ferramenta e fornece informações necessárias para primeiro uso
+
+ ![img0](https://raw.githubusercontent.com/IanniMuliterno/iannimuliterno.github.io/master/img/image0.png)
+
+ A segunda aba, apresenta uma análise exploratória, como histogramas de dados demográficos dos clientes, uma série temporal de seu consumo em relação ao produto de interesse e outras informações referentes a seu comportamento de compra, esta aba funciona mais como um exemplo do quão interessante o shiny pode ser pela possibilidade de ofereçar uma análise exploratória dinâmica além da própria análise estatística. 
+
+![img1](https://raw.githubusercontent.com/IanniMuliterno/iannimuliterno.github.io/master/img/image.png)
+![img2](https://raw.githubusercontent.com/IanniMuliterno/iannimuliterno.github.io/master/img/image2.png)
+
+O título da terceira aba faz referência a tendência de ficar "espiando" as métricas resultantes do experimento clássico antes que ele termine e é nesta aba que são apresentados os resultados do teste A/B.
+
+![peek](https://raw.githubusercontent.com/IanniMuliterno/iannimuliterno.github.io/master/img/Peek.png)
+
+O card "nível de confiaça" mostra o valor de `1 - p.b_superior`, numa tentativa de facilitar a interpretação para o usuário acostumado a interpretar nível de significância ( ou seja, ele está acostumado a entender que algo parece bom a medida que a métrica se aproxima de 0, mais precisamente, tendo algo menor que 0.10 ou 0.05 ). O card "Lift esperado" mostra a mediana do histograma "Effect" apresentado, este valor é interpretado como o ganho em CR esperado quando se escolhe B ao invés de A. O card "Loss" apresenta a aplicação de uma função de decisão, esse valor representa a perda esperada em CR caso o usuário resolva tomar uma decisão a partir daqueles resultados e no fim das contas essa decisão esteja equivocada, ou seja, o card "Loss" junto com "nível de confiança" tentam mostrar de forma mais clara possível qual o risco que o usuário está correndo em parar o experimento antes do tempo e tomar decisões que os dados adquiridos até o momento. O card "ganho mensal esperado" apresenta o ganho mensal em reais equivalente ao "lift esperado" se aplicado a um grupo de pessoas do mesmo tamanho utilizado no teste. Por fim, a curva traçada sobre o histograma representa a função de distribuição acumulada do efeito, assim com o uso da biblioteca plotly é possível permitir que o usuário navegue com o mouse sobre o gráfico e possa descobrir intervalos de confiança do efeito de A versus B.
+
+Existe um ponto sendo melhorado nesse aplicativo, este foi mencionado durante as perguntas pós apresentação : O update da priori a cada vez que o dashboard for reexecutado. Também estou estudando a possibilidade de deixar o usuário setar a "força" da priori, que seria traduzida como " o quanto eu confio que o comportamento pré-teste das pessoas é consistente?", quanto maior a força da priori maior é a evidência que precisa ser observada para que o teste aponte diferenças relevantes de desempenho entre A e B.
