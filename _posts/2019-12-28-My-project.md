@@ -172,7 +172,7 @@ Uma vez pronta, resolvi passar a ideia descrita aqui para um aplicativo em shiny
 
  ![img0](https://raw.githubusercontent.com/IanniMuliterno/iannimuliterno.github.io/master/img/image0.png)
 
- A segunda aba, apresenta uma análise exploratória, como histogramas de dados demográficos dos clientes, uma série temporal de seu consumo em relação ao produto de interesse e outras informações referentes a seu comportamento de compra, esta aba funciona mais como um exemplo do quão interessante o shiny pode ser pela possibilidade de ofereçar uma análise exploratória dinâmica além da própria análise estatística. 
+ A segunda aba, apresenta uma análise exploratória, como histogramas de dados demográficos dos clientes, uma série temporal de seu consumo em relação ao produto de interesse e outras informações referentes a seu comportamento de compra, esta aba funciona mais como um exemplo do quão interessante o shiny pode ser pela possibilidade de oferecer uma análise exploratória dinâmica além da própria análise estatística. 
 
 ![img1](https://raw.githubusercontent.com/IanniMuliterno/iannimuliterno.github.io/master/img/image.png)
 ![img2](https://raw.githubusercontent.com/IanniMuliterno/iannimuliterno.github.io/master/img/image2.png)
